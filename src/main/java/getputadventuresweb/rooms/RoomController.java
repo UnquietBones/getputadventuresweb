@@ -1,7 +1,5 @@
 package getputadventuresweb.rooms;
 
-import java.util.List;
-
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -14,7 +12,7 @@ public class RoomController {
     }
 
     // Single item
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://main.d2c75mp6llcf4b.amplifyapp.com:4200")
     @GetMapping("/room")
     RoomEntity getOne(@RequestParam Integer id) {
         return repository.findById(id)

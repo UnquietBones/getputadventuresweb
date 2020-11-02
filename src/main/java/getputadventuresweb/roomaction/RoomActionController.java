@@ -18,14 +18,14 @@ public class RoomActionController {
     }
 
     // Action IDs for a room
-    @CrossOrigin(origins = "https://main.d2c75mp6llcf4b.amplifyapp.com:4200")
+    @CrossOrigin(origins = "*")
     @GetMapping("/roomaction")
     List<RoomActionEntity> getMatch(@RequestParam Integer id) {
         return repository.findByRoomId(id);
     }
 
     // Actions for a room
-    @CrossOrigin(origins = "https://main.d2c75mp6llcf4b.amplifyapp.com:4200")
+    @CrossOrigin(origins = "*")
     @GetMapping("/roomactions")
     List<ActionEntity> findActionsByRoomId(@RequestParam Integer id) {
         return repository.findActionsByRoomId(id);

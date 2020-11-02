@@ -15,7 +15,7 @@ public class ActionController {
     }
 
     // Single item
-    @CrossOrigin(origins = "https://main.d2c75mp6llcf4b.amplifyapp.com:4200")
+    @CrossOrigin(origins = "https://main.d2c75mp6llcf4b.amplifyapp.com/")
     @GetMapping("/action")
     ActionEntity getAction(@RequestParam Integer id) {
 
@@ -24,7 +24,7 @@ public class ActionController {
     }
 
     // Do an Action
-    @CrossOrigin(origins = "https://main.d2c75mp6llcf4b.amplifyapp.com:4200")
+    @CrossOrigin(origins = "https://main.d2c75mp6llcf4b.amplifyapp.com/")
     @GetMapping("/doaction")
     String doThisAction(@RequestParam Integer id) {
         String roomID = "";
@@ -36,7 +36,7 @@ public class ActionController {
     }
 
     // Reset inventory actions
-    @CrossOrigin(origins = "https://main.d2c75mp6llcf4b.amplifyapp.com:4200")
+    @CrossOrigin(origins = "*")
     @GetMapping("/resetinventory")
     void doThisAction(@RequestParam Integer[] ids) {
         ActionUtils actionUtils = new ActionUtils();

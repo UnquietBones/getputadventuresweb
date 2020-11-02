@@ -12,7 +12,7 @@ public class RoomController {
     }
 
     // Single item
-    @CrossOrigin(origins = "https://main.d2c75mp6llcf4b.amplifyapp.com:4200")
+    @CrossOrigin(origins = "*")
     @GetMapping("/room")
     RoomEntity getOne(@RequestParam Integer id) {
         return repository.findById(id)

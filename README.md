@@ -21,7 +21,7 @@ Actions can be valid:
 - When combined with specific room actions
 - When combined with specific inventory actions
 
-##Room-Action Example
+## Room-Action Example
 
 Room A has a locked door that can be unlocked with Small Key.
 

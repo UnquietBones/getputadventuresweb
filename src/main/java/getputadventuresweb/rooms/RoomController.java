@@ -2,6 +2,8 @@ package getputadventuresweb.rooms;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+
 @RestController
 public class RoomController {
 
@@ -17,5 +19,12 @@ public class RoomController {
     RoomEntity getOne(@RequestParam Integer id) {
         return repository.findById(id)
                 .orElseThrow(() -> new RoomNotFoundException(id));
+    }
+
+    // All rooms
+    @CrossOrigin(origins = "*")
+    @GetMapping("/allrooms")
+    ArrayList getAll() {
+        return (ArrayList) repository.findAll();
     }
 }

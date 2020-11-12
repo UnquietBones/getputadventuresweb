@@ -33,5 +33,5 @@ Action 'Drop Key' will remove the item from inventory and return the player to t
 
 Action 'Unlock Door' will only show in Room A and will move the player to Room AA where the door is unlocked (I need to do this instead of swapping out the room action Locked Door to action Open Door for the room, because of the storyline I'm writing.)
 
-##Backend Work
+## Backend Work
 Right now the backend is responsible for fetching data from the database. There will probably be logic to apply the different world settings, but that may be something I do entirely with queries.

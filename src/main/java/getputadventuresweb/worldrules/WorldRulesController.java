@@ -2,9 +2,6 @@ package getputadventuresweb.worldrules;
 
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Optional;
-
 @RestController
 public class WorldRulesController {
 
@@ -15,7 +12,7 @@ public class WorldRulesController {
     }
 
     // Single item
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "*")
     @GetMapping("/worldrules")
     WorldRulesEntity getOne(@RequestParam Integer id) {
 

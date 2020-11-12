@@ -49,9 +49,11 @@ mvnw.cmd
 /log/
 *.log*
 
-
 # Windows
-# Windows thumbnail cache files
 Thumbs.db
 ehthumbs.db
 ehthumbs_vista.db
+
+# Other Stuffs #
+/.ebextensions/
+/out/

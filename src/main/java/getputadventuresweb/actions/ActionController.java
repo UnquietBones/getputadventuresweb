@@ -1,6 +1,5 @@
 package getputadventuresweb.actions;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,7 +15,7 @@ public class ActionController {
     }
 
     // Single item
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "*")
     @GetMapping("/action")
     ActionEntity getAction(@RequestParam Integer id) {
 
@@ -25,7 +24,7 @@ public class ActionController {
     }
 
     // Do an Action
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "*")
     @GetMapping("/doaction")
     String doThisAction(@RequestParam Integer id) {
         String roomID = "";
@@ -37,7 +36,7 @@ public class ActionController {
     }
 
     // Reset inventory actions
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "*")
     @GetMapping("/resetinventory")
     void doThisAction(@RequestParam Integer[] ids) {
         ActionUtils actionUtils = new ActionUtils();

@@ -18,30 +18,7 @@ public class ActionController {
     @CrossOrigin(origins = "*")
     @GetMapping("/action")
     ActionEntity getAction(@RequestParam Integer id) {
-
         return repository.findById(id)
                 .orElseThrow(() -> new ActionNotFoundException(id));
-    }
-
-    // Do an Action
-    @CrossOrigin(origins = "*")
-    @GetMapping("/doaction")
-    String doThisAction(@RequestParam Integer id) {
-        String roomID = "";
-        ActionEntity actionEntity = repository.findById(id)
-                .orElseThrow(() -> new ActionNotFoundException(id));
-        ActionUtils actionUtils = new ActionUtils();
-        roomID = actionUtils.doCommand(actionEntity.getCommand());
-        return roomID;
-    }
-
-    // Reset inventory actions
-    @CrossOrigin(origins = "*")
-    @GetMapping("/resetinventory")
-    void doThisAction(@RequestParam Integer[] ids) {
-        ActionUtils actionUtils = new ActionUtils();
-        for (Integer id : ids) {
-            actionUtils.resetAction(getAction(id));
-        }
     }
 }

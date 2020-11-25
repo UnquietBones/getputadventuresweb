@@ -17,9 +17,6 @@ public class ActionEntity {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "description")
-    private String description;
-
     @Column(name = "command")
     private String command;
 
@@ -28,6 +25,9 @@ public class ActionEntity {
 
     @Column(name = "requires_action_id")
     private Integer requiresActionId;
+
+    @Column(name = "forbids_action_id")
+    private Integer forbidsActionId;
 
     @Column(name = "reset_room_id")
     private Integer resetRoomId;
@@ -49,28 +49,12 @@ public class ActionEntity {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public String getCommand() {
         return command;
     }
 
     public void setCommand(String command) {
         this.command = command;
-    }
-
-    public Integer getResetRoomId() {
-        return resetRoomId;
-    }
-
-    public void setResetRoomId(Integer resetRoomId) {
-        this.resetRoomId = resetRoomId;
     }
 
     public Integer getRequiresRoomId() {
@@ -89,6 +73,22 @@ public class ActionEntity {
         this.requiresActionId = requiresActionId;
     }
 
+    public Integer getForbidsActionId() {
+        return forbidsActionId;
+    }
+
+    public void setForbidsActionId(Integer requiresActionId) {
+        this.forbidsActionId = forbidsActionId;
+    }
+
+    public Integer getResetRoomId() {
+        return resetRoomId;
+    }
+
+    public void setResetRoomId(Integer resetRoomId) {
+        this.resetRoomId = resetRoomId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -96,16 +96,16 @@ public class ActionEntity {
         ActionEntity that = (ActionEntity) o;
         return id.equals(that.id) &&
                 Objects.equals(name, that.name) &&
-                Objects.equals(description, that.description) &&
                 Objects.equals(command, that.command) &&
                 Objects.equals(requiresRoomId, that.requiresRoomId) &&
                 Objects.equals(requiresActionId, that.requiresActionId) &&
+                Objects.equals(forbidsActionId, that.forbidsActionId) &&
                 Objects.equals(resetRoomId, that.resetRoomId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, description, command, requiresRoomId, requiresActionId, resetRoomId);
+        return Objects.hash(id, name, command, requiresRoomId, requiresActionId, forbidsActionId, resetRoomId);
     }
 
     @Override
@@ -113,10 +113,10 @@ public class ActionEntity {
         return "ActionEntity{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
                 ", command='" + command + '\'' +
                 ", requiresRoomId='" + requiresRoomId + '\'' +
                 ", requiresActionId='" + requiresActionId + '\'' +
+                ", forbidsActionId='" + forbidsActionId + '\'' +
                 ", resetRoomId='" + resetRoomId + '\'' +
                 '}';
     }

@@ -35,6 +35,8 @@ Action 'Unlock Door' will only show in Room A and will move the player to Room A
 
 ## Room-Action Filtering
 
+The backend of the program has logic focused around the room actions, the front end has the logic focused around the inventory actions (which both behave the same, within context).
+
 Each action has the possibility to require or forbid a corresponding action from being in the player's inventory. When fetching the actions for a room, the query will now check to see that these limitations are met before adding the action to the response list.
 
 ## Backend Work

@@ -1,3 +1,4 @@
+
 package getputadventuresweb.roomaction;
 
 import getputadventuresweb.actions.ActionEntity;
@@ -17,18 +18,18 @@ public class RoomActionController {
         this.repository = repository;
     }
 
-    // Action IDs for a room
-    @CrossOrigin(origins = "*")
-    @GetMapping("/roomaction")
-    List<RoomActionEntity> getMatch(@RequestParam Integer id) {
-        return repository.findByRoomId(id);
-    }
-
     // Actions for a room
     @CrossOrigin(origins = "*")
     @GetMapping("/roomactions")
-    List<ActionEntity> findActionsByRoomId(@RequestParam Integer id) {
-        return repository.findActionsByRoomId(id);
+    List<ActionEntity> findActionsByRoomId(@RequestParam Integer id, @RequestParam List<Integer> inventoryList) {
+
+        // In case there's nothing in the inventory, we need to put something in inventoryList so
+        // MySQL dosen't have kittenfits
+        if (inventoryList.size() < 1) {
+            inventoryList.add(777777777);
+        }
+
+        return repository.findActionsByRoomId(id, inventoryList);
     }
 }
 
